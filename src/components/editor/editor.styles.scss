@@ -1,0 +1,21 @@
+.editor-block {
+    width: 700px;
+    height: 600px;
+    border: #00675C	 solid 3px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 100px;
+    .title-bar {
+        display: flex;
+        flex-direction: row;
+        height: 30px;
+        background-color: grey;
+        border-bottom: #00675C solid 5px;
+    }
+    .window-logo {
+        img {
+            width: fit-content;
+            height: fit-content;
+        }
+    }
+}
