@@ -2,20 +2,45 @@
     width: 700px;
     height: 600px;
     border: #00675C	 solid 3px;
+    background-color: rgba(0,103,92, .1);
     margin-left: 50%;
     transform: translateX(-50%);
     margin-bottom: 100px;
+    box-shadow:  10px 10px 10px 1px rgba(0,0,0, 0.50); 
     .title-bar {
         display: flex;
         flex-direction: row;
         height: 30px;
-        background-color: grey;
-        border-bottom: #00675C solid 5px;
+        background-color: rgba(0,103,92, .5);
+        border-bottom: #00675C solid 2px;
+        align-items: center;
+        padding-left: 10px;
+        padding-top: 2px;
+        justify-content:space-between;
+        font-weight: bold;
+        font-size: 18px;
+        p {
+            transform: translateY(-10%);
+        }
     }
     .window-logo {
+        width: 20px;
+        height: 25px;
         img {
             width: fit-content;
-            height: fit-content;
+        }
+    }
+    .editor-area {
+        width: 702px;
+        textarea {
+            border:none;
+            padding-left: 6px;
+            padding-right: 10px;
+            background-color:inherit;
+            border: none;
+            font-size: 16px;
+            outline: none;
+            width: 689px;
         }
     }
 }

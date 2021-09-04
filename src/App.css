@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: rgb(135,181,181);
+  font-family: 'Rajdhani', sans-serif;
+
 }
 
 .container {
@@ -39,4 +42,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.scale {
+  background-color: rgb(60,139,132);
+  border: none; 
+  margin-left: 100;
+  cursor: pointer; 
+}
+
+.scale > img{
+  width: 20px;
 }
