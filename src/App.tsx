@@ -4,18 +4,20 @@ import Editor from './components/editor/editor.component';
 import Previewer from './components/previewer/previewer.component';
 
 function App() {
-  const [windows, setWindowsToVanish] = useState('null');
+  const [windowsClosed, setWindowsToVanish] = useState('Neither');
 
-  // const updateApp = (winName: string): void => {
-  //     setWindowsToVanish(winName);
-  // }
+  const updateApp = (winName: string): void => {
+      setWindowsToVanish(winName);
+  }
+
+  console.log(windowsClosed);
 
   return (
     <div className="App">
       <section>
         <div className="container">
-          <Editor />
-          <Previewer/>
+          {windowsClosed !== 'Editor' ? <Editor updateApp={updateApp}/> : null}
+          {windowsClosed !== 'Previewer' ? <Previewer updateApp={updateApp}/> : null}
         </div>
       </section>
     </div>
