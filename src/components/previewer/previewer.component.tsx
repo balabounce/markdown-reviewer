@@ -2,13 +2,47 @@ import React, {useState} from "react";
 import './previewer.styles.scss';
 import previewIcon from '../../assets/previewer.svg';
 import scaleBtn from '../../assets/scale-icon.svg';
+import marked from 'marked';
 
 type PreviewerProps = {
-    updateApp: (winName: string) => void,
+    updateApp: (winName: string, text?: string) => void,
+    data: string
 }
 
 const Previewer: React.FC<PreviewerProps> = (props) => {
-    const [closed, close] = useState(false);
+    const [scaled, scale] = useState(false);
+
+    const fnc = ({}) => {
+        const elem = document.createElement('div');
+        return elem;
+    };
+
+    if(scaled) {
+        return (
+            <div className="previewer-block scaled" >
+                <section className='title-bar'>
+                    <div className="window-logo">
+                        <img src={previewIcon} alt='logo'/>
+                    </div>
+                    <p className='title'>Previewer</p>
+                    <button className='scale' onClick={() => {
+                        if(!scaled) {
+                            props.updateApp('Editor');
+                            scale(true);
+                        } else {
+                            props.updateApp('Neither');
+                            scale(false);
+                        }
+                    }}>
+                        <img src={scaleBtn}  alt="scale" />
+                    </button>
+                </section>
+                <section className='review-area'>
+                {/* {fnc} */}
+                </section>
+            </div>
+        )
+    }
 
     return (
         <div className="previewer-block" >
@@ -18,18 +52,19 @@ const Previewer: React.FC<PreviewerProps> = (props) => {
                 </div>
                 <p className='title'>Previewer</p>
                 <button className='scale' onClick={() => {
-                    if(!closed) {
-                        props.updateApp('Editor')
-                        close(true);
+                    if(!scaled) {
+                        props.updateApp('Editor');
+                        scale(true);
                     } else {
                         props.updateApp('Neither');
-                        close(false);
+                        scale(false);
                     }
                 }}>
-                    <img src={scaleBtn}  alt="scale" />
+                <img src={scaleBtn}  alt="scale" />
                 </button>
             </section>
             <section className='review-area'>
+                {fnc()}
             </section>
         </div>
     )

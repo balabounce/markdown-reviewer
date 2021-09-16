@@ -1,6 +1,7 @@
 .previewer-block {
     width: 1000px;
-    height: 600px;
+    min-height: 500px;
+    height: fit-content;
     border: #00675C	 solid 3px;
     background-color: rgba(0,103,92, .1);
     margin-left: 50%;
@@ -31,4 +32,17 @@
             width: fit-content;
         }
     }
+    .review-area {
+        padding: 0 5px;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 400;
+        width: 100%;
+        word-wrap: break-word;
+    }
+}
+
+.scaled {
+    min-height: 1000px;
+    height: fit-content;
 }
