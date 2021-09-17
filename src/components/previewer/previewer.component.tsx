@@ -12,10 +12,6 @@ type PreviewerProps = {
 const Previewer: React.FC<PreviewerProps> = (props) => {
     const [scaled, scale] = useState(false);
 
-    const fnc = ({}) => {
-        const elem = document.createElement('div');
-        return elem;
-    };
 
     if(scaled) {
         return (
@@ -37,8 +33,7 @@ const Previewer: React.FC<PreviewerProps> = (props) => {
                         <img src={scaleBtn}  alt="scale" />
                     </button>
                 </section>
-                <section className='review-area'>
-                {/* {fnc} */}
+                <section className='review-area' dangerouslySetInnerHTML={{__html: marked(props.data)}}>
                 </section>
             </div>
         )
@@ -63,8 +58,7 @@ const Previewer: React.FC<PreviewerProps> = (props) => {
                 <img src={scaleBtn}  alt="scale" />
                 </button>
             </section>
-            <section className='review-area'>
-                {fnc()}
+            <section className='review-area' dangerouslySetInnerHTML={{__html: marked(props.data)}}>
             </section>
         </div>
     )
